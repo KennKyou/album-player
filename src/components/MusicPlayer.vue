@@ -3,17 +3,17 @@ import { ref, watch, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { usePlayerStore } from '@/stores/playerStore';
 import { usePlaylistStore } from '@/stores/playlistStore';
+import { useThemeStore } from '@/stores/themeStore';
 import MusicPlayerInitializer from '@/components/MusicPlayerInitializer.vue';
 import MusicInfo from '@/components/MusicInfo.vue';
 import Lyrics from '@/components/Lyrics.vue';
 import MusicControls from '@/components/MusicControls.vue';
-import ProgressBar from '@/components/ProgressBar.vue';
-import Playlist from '@/components/Playlist.vue';
 import FolderSelector from '@/components/FolderSelector.vue';
 import MusicLibrary from '@/components/MusicLibrary.vue';
 
 const playerStore = usePlayerStore()
 const playlistStore = usePlaylistStore()
+const themeStore = useThemeStore()
 
 const { currentSongIndex } = storeToRefs(playlistStore)
 const { isPlaying, currentTime, duration } = storeToRefs(playerStore)
@@ -52,6 +52,11 @@ watch([currentTime, duration], () => {
 
 <template>
   <div class="player-container">
+    <div class="theme-toggle">
+      <button @click="themeStore.toggleTheme" class="theme-button">
+        <font-awesome-icon :icon="['fas', themeStore.isDarkMode ? 'moon' : 'sun']" />
+      </button>
+    </div>
     <div class="music-library">
       <MusicPlayerInitializer/>
       <FolderSelector v-if="showFolderSelector"/>
@@ -69,11 +74,42 @@ watch([currentTime, duration], () => {
 <style lang="scss" scoped>
 .player-container {
   height: 100vh;
-  background: linear-gradient(to bottom, #1a1a1a, #121212);
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
+}
+
+.theme-toggle {
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  left: 10px;
+}
+
+.theme-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: var(--component-bg);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--hover-bg);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 .music-library {
@@ -89,20 +125,20 @@ watch([currentTime, duration], () => {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--component-bg);
     border-radius: 3px;
     
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--hover-bg);
     }
   }
 }
 
 .music-info {
   height: 215px;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--component-bg);
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
   position: relative;
   z-index: 10;
 }

@@ -77,7 +77,7 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .music-controls {
-  padding: 0 10px 10px 10px;
+  padding: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -105,8 +105,8 @@ onUnmounted(() => {
   border: none;
   outline: none;
   cursor: pointer;
-  background: #454545;
-  color: #fff;
+  background: var(--component-bg);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,7 +114,7 @@ onUnmounted(() => {
   font-size: 0.9rem;
 
   &:hover {
-    background: #505050;
+    background: var(--hover-bg);
     transform: scale(1.05);
   }
 
@@ -126,11 +126,12 @@ onUnmounted(() => {
 .play-button {
   width: 42px;
   height: 42px;
-  background: #3498db;
+  background: var(--primary-color);
+  color: white;
   font-size: 1rem;
 
   &:hover {
-    background: #2980b9;
+    background: var(--primary-color-dark);
   }
 }
 
@@ -144,8 +145,8 @@ onUnmounted(() => {
     height: 0;
 
     &:checked + .repeat-label {
-      color: #3498db;
-      background: rgba(52, 152, 219, 0.1);
+      color: var(--primary-color);
+      background: var(--hover-bg);
     }
   }
 }
@@ -158,13 +159,13 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #666;
+  color: var(--text-secondary);
   font-size: 0.8rem;
   transition: all 0.2s ease;
 
   &:hover {
-    color: #3498db;
-    background: rgba(52, 152, 219, 0.1);
+    color: var(--primary-color);
+    background: var(--hover-bg);
   }
 }
 
@@ -174,11 +175,11 @@ onUnmounted(() => {
   gap: 8px;
   padding: 6px 12px;
   border-radius: 20px;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--component-bg);
 }
 
 .volume-icon {
-  color: #666;
+  color: var(--text-secondary);
   font-size: 0.9rem;
   width: 20px;
   text-align: center;
@@ -202,11 +203,11 @@ onUnmounted(() => {
   margin: 0;
 
   &:hover + .volume-bar .volume-bar-fill {
-    background: #3498db;
+    background: var(--primary-color);
   }
 
   &:active + .volume-bar .volume-bar-fill {
-    background: #2980b9;
+    background: var(--primary-color-dark);
   }
 }
 
@@ -214,20 +215,20 @@ onUnmounted(() => {
   position: absolute;
   width: 100%;
   height: 4px;
-  background: #454545;
+  background: var(--progress-bg);
   border-radius: 2px;
   overflow: hidden;
 
   .volume-bar-fill {
     height: 100%;
-    background: #aaa;
+    background: var(--progress-fill);
     transition: background-color 0.2s ease;
   }
 }
 
 .volume-slider-container:hover {
   .volume-bar .volume-bar-fill {
-    background: #3498db;
+    background: var(--primary-color);
   }
 }
 </style>

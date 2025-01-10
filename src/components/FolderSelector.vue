@@ -186,11 +186,11 @@ const findAlbumArtFile = (files, albumName) => {
   display: flex;
   gap: 1rem;
   align-items: center;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--component-bg);
   padding: 20px;
   border-radius: 12px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
 }
 
 .file-input-wrapper {
@@ -209,17 +209,17 @@ const findAlbumArtFile = (files, albumName) => {
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  background: var(--component-bg);
+  color: var(--text-primary);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   font-size: 0.95rem;
 }
 
 .file-input-label:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--hover-bg);
 }
 
 .load-button {
@@ -241,10 +241,10 @@ const findAlbumArtFile = (files, albumName) => {
 }
 
 .load-button:disabled {
-  background: rgba(255, 255, 255, 0.05);
-  color: #666;
+  background: var(--component-bg);
+  color: var(--text-secondary);
   cursor: not-allowed;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .loading-overlay {
@@ -253,7 +253,7 @@ const findAlbumArtFile = (files, albumName) => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--overlay-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -265,16 +265,16 @@ const findAlbumArtFile = (files, albumName) => {
   text-align: center;
   width: 300px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--component-bg);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
 }
 
 .loading-spinner {
   width: 48px;
   height: 48px;
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top: 4px solid #3498db;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--primary-color);
   border-radius: 50%;
   margin: 0 auto 1.5rem;
   animation: spin 1s linear infinite;
@@ -282,7 +282,7 @@ const findAlbumArtFile = (files, albumName) => {
 
 .loading-text {
   margin-bottom: 1.5rem;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 1.1rem;
 }
 
@@ -293,7 +293,7 @@ const findAlbumArtFile = (files, albumName) => {
 .progress-bar {
   width: 100%;
   height: 6px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--progress-bg);
   border-radius: 3px;
   overflow: hidden;
   margin-bottom: 0.8rem;
@@ -301,15 +301,39 @@ const findAlbumArtFile = (files, albumName) => {
 
 .progress-bar-fill {
   height: 100%;
-  background: #3498db;
+  background: var(--primary-color);
   transition: width 0.3s ease;
 }
 
 .progress-text {
-  color: #999;
+  color: var(--text-secondary);
   font-size: 0.9rem;
   font-variant-numeric: tabular-nums;
   font-family: monospace;
+}
+
+.cancel-button {
+  margin-top: 1rem;
+  padding: 8px 16px;
+  background: var(--component-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover:not(:disabled) {
+  background: var(--hover-bg);
+}
+
+.cancel-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @keyframes spin {

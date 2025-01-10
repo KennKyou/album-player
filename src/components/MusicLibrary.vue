@@ -129,11 +129,11 @@ const clearPlaylist = () => {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--border-color);
     border-radius: 2px;
     
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--hover-bg);
     }
   }
 }
@@ -145,7 +145,7 @@ const clearPlaylist = () => {
   border-radius: 4px;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--hover-bg);
 
     .song-play-icon {
       opacity: 1;
@@ -182,7 +182,7 @@ const clearPlaylist = () => {
 
 .song-number {
   min-width: 28px;
-  color: #666;
+  color: var(--text-secondary);
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -194,7 +194,7 @@ const clearPlaylist = () => {
 
 .song-title {
   font-size: 0.95rem;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 4px;
   white-space: nowrap;
   overflow: hidden;
@@ -203,7 +203,7 @@ const clearPlaylist = () => {
 
 .song-artist {
   font-size: 0.8rem;
-  color: #888;
+  color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -217,7 +217,7 @@ const clearPlaylist = () => {
 
 .song-duration {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-secondary);
   font-variant-numeric: tabular-nums;
   font-family: monospace;
 }

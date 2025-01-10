@@ -1,8 +1,8 @@
 {
   "name": "album-player",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "",
+  "description": "一個專注於完整專輯聆聽體驗的音樂播放器。回歸傳統 CD 播放的精神，讓您能夠專注欣賞一張專輯的完整音樂旅程。支援多種音訊格式，提供簡潔的播放介面與專輯封面顯示功能。",
   "author": {
     "name": "Ken Chiang",
     "email": "clh91810@gmail.com"

@@ -45,7 +45,7 @@ const handleSeek = (event) => {
 
 .progress-time {
   font-size: 0.8rem;
-  color: #999;
+  color: var(--text-secondary);
   min-width: 45px;
   text-align: center;
   font-variant-numeric: tabular-nums;
@@ -70,11 +70,11 @@ const handleSeek = (event) => {
   margin: 0;
 
   &:hover + .progress-bar .progress-bar-fill {
-    background: #3498db;
+    background: var(--primary-color);
   }
 
   &:active + .progress-bar .progress-bar-fill {
-    background: #2980b9;
+    background: var(--primary-color-dark);
   }
 }
 
@@ -82,20 +82,20 @@ const handleSeek = (event) => {
   position: absolute;
   width: 100%;
   height: 6px;
-  background: #454545;
+  background: var(--progress-bg);
   border-radius: 3px;
   overflow: hidden;
 
   .progress-bar-fill {
     height: 100%;
-    background: #aaa;
+    background: var(--progress-fill);
     transition: background-color 0.2s ease;
   }
 }
 
 .slider-container:hover {
   .progress-bar .progress-bar-fill {
-    background: #3498db;
+    background: var(--primary-color);
   }
 }
 </style>

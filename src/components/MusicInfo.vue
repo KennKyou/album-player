@@ -108,7 +108,7 @@ const albumCoverUrl = computed(() => {
   display: flex;
   gap: 16px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--component-bg);
   border-radius: 8px;
 }
 
@@ -117,7 +117,7 @@ const albumCoverUrl = computed(() => {
   height: 100px;
   border-radius: 6px;
   overflow: hidden;
-  background-color: #2a2a2a;
+  background-color: var(--component-bg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
 }
@@ -125,7 +125,7 @@ const albumCoverUrl = computed(() => {
 .album-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #2a2a2a 0%, #353535 100%);
+  background: linear-gradient(135deg, var(--component-bg) 0%, var(--hover-bg) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,7 +134,7 @@ const albumCoverUrl = computed(() => {
 .placeholder-icon {
   width: 32px;
   height: 32px;
-  border: 2px solid #444;
+  border: 2px solid var(--text-secondary);
   border-radius: 50%;
   position: relative;
 
@@ -145,7 +145,7 @@ const albumCoverUrl = computed(() => {
     left: 50%;
     width: 10px;
     height: 10px;
-    background: #444;
+    background: var(--text-secondary);
     border-radius: 50%;
     transform: translate(-50%, -50%);
   }
@@ -199,7 +199,7 @@ img {
 h2 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0;
   line-height: 1.4;
   white-space: nowrap;
@@ -208,13 +208,13 @@ h2 {
 
 .artist {
   font-size: 0.95rem;
-  color: #999;
+  color: var(--text-secondary);
   margin: 0;
 }
 
 .metadata {
   font-size: 0.8rem;
-  color: #666;
+  color: var(--text-secondary);
   margin: 0;
   font-family: monospace;
 }
@@ -222,7 +222,7 @@ h2 {
 .loading {
   position: relative;
   overflow: hidden;
-  background: #2a2a2a;
+  background: var(--component-bg);
   border-radius: 4px;
   
   .loading-content {
@@ -238,8 +238,8 @@ h2 {
     bottom: 0;
     background: linear-gradient(90deg, 
       transparent 0%,
-      #353535 20%,
-      #353535 80%,
+      var(--hover-bg) 20%,
+      var(--hover-bg) 80%,
       transparent 100%
     );
   }
