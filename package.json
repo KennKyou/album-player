@@ -1,0 +1,74 @@
+{
+  "name": "album-player",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "author": {
+    "name": "Ken Chiang",
+    "email": "clh91810@gmail.com"
+  },
+  "main": "electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron": "wait-on tcp:5173 && cross-env NODE_ENV=development electron .",
+    "electron:dev": "concurrently -k \"npm run dev\" \"npm run electron\"",
+    "electron:build": "vite build && electron-builder"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "localforage": "^1.10.0",
+    "music-metadata": "^10.2.0",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@electron/remote": "^2.1.2",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^33.3.1",
+    "electron-builder": "^25.1.8",
+    "sass-embedded": "^1.77.8",
+    "vite": "^5.3.1",
+    "vite-plugin-vue-devtools": "^7.7.0",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.albumplayer.app",
+    "productName": "Album Player",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "mac": {
+      "icon": "public/icon.icns",
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "icon": "public/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "icon": "public/icon.png",
+      "target": [
+        "AppImage"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "public/icon.ico",
+      "uninstallerIcon": "public/icon.ico",
+      "installerHeaderIcon": "public/icon.ico"
+    }
+  }
+}
